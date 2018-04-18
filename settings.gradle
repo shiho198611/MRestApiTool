@@ -1,0 +1,4 @@
+rootProject.name = 'MRestApiTool'
+include 'mrestapitool'
+include 'sample'
+
