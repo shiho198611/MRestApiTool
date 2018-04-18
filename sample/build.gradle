@@ -12,5 +12,5 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    compile 'com.shiho:mrestapitool:1.0.0'
+    compile 'com.shiho:mrestapitool:1.0.1'
 }

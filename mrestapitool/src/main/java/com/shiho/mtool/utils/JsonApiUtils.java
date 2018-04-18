@@ -3,13 +3,14 @@ package com.shiho.mtool.utils;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException;
 import com.shiho.mtool.ApiStatus;
+import com.shiho.mtool.convert.JsonStringConverter;
 import com.shiho.mtool.expection.LibStatusNullException;
 
 import java.io.IOException;
 
 public class JsonApiUtils extends BaseApiUtils {
     public JsonApiUtils(String url) {
-        super(url);
+        super(url, new JsonStringConverter());
     }
 
     public String convertRequestToJsonString(Object request) throws JsonProcessingException, LibStatusNullException {

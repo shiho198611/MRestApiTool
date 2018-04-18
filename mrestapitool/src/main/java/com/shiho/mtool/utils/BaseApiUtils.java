@@ -3,7 +3,8 @@ package com.shiho.mtool.utils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.shiho.mtool.ApiStatus;
 import com.shiho.mtool.ErrorHandler;
-import com.shiho.mtool.StringConverter;
+import com.shiho.mtool.convert.JsonStringConverter;
+import com.shiho.mtool.convert.StringConverter;
 import okhttp3.OkHttpClient;
 import okhttp3.Protocol;
 import okhttp3.Request;
@@ -15,7 +16,7 @@ import retrofit2.Retrofit;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-public class BaseApiUtils {
+abstract public class BaseApiUtils {
 
     protected String url;
     protected Retrofit retrofit;
@@ -26,7 +27,7 @@ public class BaseApiUtils {
     private int readTimeOut;
     private int connectTimeOut;
 
-    public BaseApiUtils(String url){
+    public BaseApiUtils(String url, StringConverter stringConverter){
         this.url = url;
 
         readTimeOut = 30;
@@ -35,7 +36,7 @@ public class BaseApiUtils {
         OkHttpClient okHttpClient = configHttpClient();
         retrofit = new Retrofit.Builder()
                 .baseUrl(url)
-                .addConverterFactory(new StringConverter())
+                .addConverterFactory(stringConverter)
                 .client(okHttpClient)
                 .build();
         objectMapper = new ObjectMapper();

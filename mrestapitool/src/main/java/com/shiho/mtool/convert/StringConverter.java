@@ -1,4 +1,4 @@
-package com.shiho.mtool;
+package com.shiho.mtool.convert;
 
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
@@ -15,7 +15,7 @@ import java.lang.reflect.Type;
  */
 public class StringConverter extends Converter.Factory {
 
-    private MediaType mediaType = MediaType.parse("application/json");
+    private MediaType mediaType = MediaType.parse("text/plain");
 
     @Override
     public Converter<?, RequestBody> requestBodyConverter(Type type, Annotation[] parameterAnnotations, Annotation[] methodAnnotations, Retrofit retrofit) {

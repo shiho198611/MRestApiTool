@@ -3,6 +3,7 @@ package com.shiho.mtool.test;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.shiho.mtool.ApiStatus;
 import com.shiho.mtool.test.handler.TestJsonErrorHandler;
+import com.shiho.mtool.test.utils.TestApiUtils;
 import com.shiho.mtool.utils.BaseApiUtils;
 import com.shiho.mtool.test.response.BaseTestApiResponse;
 import com.shiho.mtool.test.response.MockResponse;
@@ -22,7 +23,7 @@ public class BaseApiUtilsTest {
 
     @BeforeClass
     public static void initUnitTest(){
-        baseApiUtils = new BaseApiUtils("https://www.google.com.tw/");
+        baseApiUtils = new TestApiUtils("https://www.google.com.tw/");
     }
 
     @Test
